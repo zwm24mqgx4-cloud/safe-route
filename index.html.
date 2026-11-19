@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>SAFE ROUTE | Mountain Safety</title>
+
+<style>
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{font-family:Arial,sans-serif;background:#081522;color:#eef5fa}
+
+header{padding:22px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #263747}
+
+.logo{font-size:23px;font-weight:800;letter-spacing:2px}
+
+.logo span{color:#6dc9ed}
+
+nav a{color:#b8c9d5;text-decoration:none;margin-left:20px;font-size:14px}
+
+.hero{padding:75px 8%;background:linear-gradient(110deg,#081522,#173b50);min-height:350px}
+
+.tag{color:#6dc9ed;letter-spacing:3px;font-size:12px}
+
+h1{font-size:clamp(38px,6vw,65px);margin:20px 0;max-width:650px}
+
+.hero p,.card p{color:#aebfca;line-height:1.7}
+
+.btn{display:inline-block;margin-top:25px;padding:14px 22px;background:#6dc9ed;color:#081522;border:0;border-radius:7px;font-weight:bold;cursor:pointer}
+
+.container{padding:45px 8%}
+
+h2{font-size:25px;margin-bottom:22px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+
+.card{background:#112536;border:1px solid #294052;padding:23px;border-radius:12px}
+
+.card h3{margin-bottom:12px}
+
+.card p{font-size:14px}
+
+.value{font-size:29px;font-weight:bold;color:#6dc9ed;margin:12px 0}
+
+select{background:#0b1d2b;color:white;border:1px solid #40596b;padding:12px;border-radius:6px;width:100%;margin:12px 0}
+
+.result{margin-top:15px;padding:15px;background:#0b1d2b;border-radius:8px;line-height:1.6}
+
+.map{height:230px;background:linear-gradient(145deg,#173b4d,#244d57,#102638);border-radius:12px;display:flex;align-items:center;justify-content:center;text-align:center;color:#c8e6f2;padding:20px}
+
+.small{font-size:12px;color:#8fa8b9}
+
+footer{padding:30px;text-align:center;color:#7891a2;border-top:1px solid #263747}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">SAFE<span>ROUTE</span></div>
+
+<nav>
+
+<a href="#features">Features</a>
+
+<a href="#routes">Routes</a>
+
+<a href="#safety">Safety</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="tag">MOUNTAIN SAFETY TECHNOLOGY</div>
+
+<h1>Explore mountains.<br>Stay safe.</h1>
+
+<p>An intelligent mountain safety platform helping hikers assess risks, monitor conditions and make safer decisions.</p>
+
+<a href="#routes" class="btn">Explore routes →</a>
+
+</section>
+
+<section class="container" id="features">
+
+<h2>Safety dashboard</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Weather monitoring</h3>
+
+<div class="value">LIVE*</div>
+
+<p>Weather monitoring integration planned for mountain routes.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Risk assessment</h3>
+
+<div class="value">AI</div>
+
+<p>Planned analysis of terrain, weather and trail reports.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Emergency support</h3>
+
+<div class="value">SOS</div>
+
+<p>Emergency location sharing concept for designated contacts.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="container" id="routes">
+
+<h2>Explore mountain routes</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Big Almaty Lake</h3>
+
+<p>Scenic mountain destination in Ile-Alatau.</p>
+
+<p class="small">Kazakhstan · Route information demo</p>
+
+</div>
+
+<div class="card">
+
+<h3>Furmanov Peak</h3>
+
+<p>Popular hiking destination with mountain views.</p>
+
+<p class="small">Kazakhstan · Route information demo</p>
+
+</div>
+
+<div class="card">
+
+<h3>Butakovka Waterfall</h3>
+
+<p>Nature trail in the Ile-Alatau region.</p>
+
+<p class="small">Kazakhstan · Route information demo</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="container" id="safety">
+
+<h2>Route risk assessment</h2>
+
+<div class="card">
+
+<p>Select a route to see a sample risk assessment.</p>
+
+<select id="route">
+
+<option value="low">Butakovka Waterfall</option>
+
+<option value="medium">Big Almaty Lake</option>
+
+<option value="high">Furmanov Peak</option>
+
+</select>
+
+<button class="btn" onclick="assess()">Assess route</button>
+
+<div class="result" id="result">
+
+Sample assessment only. Not based on live conditions.
+
+</div>
+
+</div>
+
+</section>
+
+<section class="container">
+
+<h2>Explore the region</h2>
+
+<div class="map">
+
+<div>
+
+<h3>Ile-Alatau National Park</h3>
+
+<p>Mountain exploration area · Almaty, Kazakhstan</p>
+
+<p class="small">Interactive map integration planned</p>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+SAFE ROUTE © 2026 · Making mountain adventures safer.
+
+<br><br>
+
+Prototype demonstration. Not for real-world navigation or emergency use.
+
+</footer>
+
+<script>
+
+function assess(){
+
+const route=document.getElementById('route').value;
+
+const result=document.getElementById('result');
+
+const data={
+
+low:['LOW SAMPLE RISK','Illustrative result. Check official trail and weather information before hiking.'],
+
+medium:['MODERATE SAMPLE RISK','Illustrative result. Review weather, trail conditions and local guidance.'],
+
+high:['HIGH SAMPLE RISK','Illustrative result. Consider postponing until conditions are verified.']
+
+};
+
+result.innerHTML='<strong>'+data[route][0]+'</strong><br>'+data[route][1]+'<br><small>Demo only — no live data or AI analysis.</small>';
+
+}
+
+</script>
+
+</body>
+
+</html>
